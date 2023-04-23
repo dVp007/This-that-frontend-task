@@ -1,18 +1,19 @@
-<div class="centered">
-  <label for="search-box">Search</label>
-  <div class="search-comp" id="search-component">
+<div class="hero-container">
+  <div class="hero-title">
+    Search all your favorite <span>Marvel</span> characters
+  </div>
+  <div class="hero-search-wrapper" id="search-component">
     <fa-icon class="icon" [icon]="faMagnifyingGlass"></fa-icon>
     <input
       #searchBox
+      class="hero-input"
       id="search-box"
       (input)="search(searchBox.value)"
       placeholder="Search for hero names"
     />
-    <ul class="search-result">
-      <li *ngFor="let hero of heroes$ | async">
-        <a>
-          {{ hero.name }}
-        </a>
+    <ul class="hero-results">
+      <li *ngFor="let hero of heroes$ | async" (click)="popup(hero.name)">
+        {{ hero.name }}
       </li>
     </ul>
   </div>

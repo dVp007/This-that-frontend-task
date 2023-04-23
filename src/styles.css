@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+*,
+*:before,
+*:after {
+  position: relative;
+  font-family: sans-serif;
+  letter-spacing: normal;
+  line-height: normal;
+  font-stretch: normal;
+  word-break: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease-in;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%),
+    #000 url(/assets/banner.jpg) no-repeat 40% center;
+  background-size: cover;
+}
+
+.container {
+  display: block;
+  width: 100%;
+  max-width: 1140px;
+  padding: 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.v-centered {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}

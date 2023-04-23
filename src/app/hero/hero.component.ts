@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
 import { HeroService } from '../hero.service';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -8,14 +8,18 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
 })
-
 export class HeroComponent {
+  @ViewChild('searchBox') searchBox: any;
   heroes$!: Observable<any[]>;
   faMagnifyingGlass = faMagnifyingGlass;
   private searchTerms = new Subject<string>();
-
   constructor(private heroService: HeroService) { }
 
+  popup(heroName: string) {
+    this.searchBox.nativeElement.value = '';
+    alert(heroName);
+    this.searchTerms.next('');
+  }
   // Push a search term into the observable stream.
   search(term: string): void {
     this.searchTerms.next(term);
