@@ -1,0 +1,19 @@
+<div class="centered">
+  <label for="search-box">Search</label>
+  <div class="search-comp" id="search-component">
+    <fa-icon class="icon" [icon]="faMagnifyingGlass"></fa-icon>
+    <input
+      #searchBox
+      id="search-box"
+      (input)="search(searchBox.value)"
+      placeholder="Search for hero names"
+    />
+    <ul class="search-result">
+      <li *ngFor="let hero of heroes$ | async">
+        <a>
+          {{ hero.name }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
